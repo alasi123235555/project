@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashborad.css">
+    <!-- Add Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    
+    </style>
+<link rel="stylesheet" href="dashborad.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Project Management System</div>
+        <ul>
+            <li><a href="#" id="projects-link">Projects</a></li>
+            <li><a href="#">Trainings</a></li>
+            <li><a href="#">Requests</a></li>
+            <li><a href="#">Messages</a></li>
+            <li class="logout"><a href="index.html">Logout</a></li>
+        </ul>
+        <!-- Notification bell -->
+        <div class="notification" id="notification-toggle">
+            🔔
+            <span class="notification-count" id="notification-count">3</span>
+        </div>
+        <!-- Dark Mode toggle switch -->
+        <div class="dark-mode-toggle">
+            <label class="switch">
+                <input type="checkbox" id="darkModeSwitch">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <!-- Notifications Dropdown -->
+        <div class="notifications" id="notifications">
+            <h3>Notifications</h3>
+            <ul>
+                <li>New Project Added</li>
+                <li>Training Request Sent</li>
+                <li>Training Approved</li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Popup for Projects using Bootstrap Card -->
+    <div class="projects-overlay" id="popup-overlay"></div>
+    <div class="projects-popup" id="projects-popup">
+        <div class="card">
+            <div class="card-header">
+                Approved Projects
+                <button class="close-btn" id="close-popup">×</button>
+            </div>
+            <div class="card-body">
+                <ul id="projects-list">
+                    <li>Project 1 <span class="badge bg-success">Supervisor: Dr. Smith, Student: Amro</span></li>
+                    <li>Project 2 <span class="badge bg-success">Supervisor: Dr. Johnson, Student: Amro</span></li>
+                    <li>Project 3 <span class="badge bg-success">Supervisor: Dr. Brown, Student: Amro</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard">
+        <div class="header">
+            <h2>Welcome, Amro!</h2>
+            <div class="profile">
+                <img src="profile.jpg" alt="Profile Picture">
+                <span>Logout</span>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Projects</h3>
+                <p>5</p>
+            </div>
+            <div class="card">
+                <h3>Trainings</h3>
+                <p>3</p>
+            </div>
+            <div class="card">
+                <h3>Requests</h3>
+                <p>2</p>
+            </div>
+            <div class="card">
+                <h3>Messages</h3>
+                <p>1</p>
+            </div>
+        </div>
+
+        <div class="recent-activity">
+            <h3>Recent Activity</h3>
+            <ul>
+                <li>New Project Added</li>
+                <li>Training Request Sent</li>
+                <li>Training Approved</li>
+            </ul>
+        </div>
+
+        <div class="actions">
+            <button>Add Project</button>
+            <button>Request Training</button>
+            <button>View Projects</button>
+            <button>View Trainings</button>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        // Wait for the page to load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get elements for notifications
+            const notificationIcon = document.getElementById('notification-toggle');
+            const notifications = document.getElementById('notifications');
+            
+            // Get element for dark mode switch
+            const darkModeSwitch = document.getElementById('darkModeSwitch');
+
+            // Get elements for the projects popup
+            const projectsLink = document.getElementById('projects-link');
+            const projectsPopup = document.getElementById('projects-popup');
+            const popupOverlay = document.getElementById('popup-overlay');
+            const closePopup = document.getElementById('close-popup');
+
+            // Toggle notifications visibility when clicking the bell
+            notificationIcon.addEventListener('click', () => {
+                notifications.classList.toggle('show');
+            });
+
+            // Toggle dark mode for the entire page when the switch changes
+            darkModeSwitch.addEventListener('change', () => {
+                document.body.classList.toggle('dark-mode');
+            });
+
+            // Show the popup when clicking the Projects link
+            projectsLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                projectsPopup.classList.add('show');
+                popupOverlay.classList.add('show');
+            });
+
+            // Close the popup when clicking the close button
+            closePopup.addEventListener('click', () => {
+                projectsPopup.classList.remove('show');
+                popupOverlay.classList.remove('show');
+            });
+
+            // Close the popup when clicking outside of it
+            popupOverlay.addEventListener('click', () => {
+                projectsPopup.classList.remove('show');
+                popupOverlay.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>

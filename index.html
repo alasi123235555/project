@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Login Page</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="button-container">
+            <button class="role-button" id="supervisorBtn">Supervisor</button>
+            <button class="role-button" id="studentBtn">Student</button>
+        </div>
+        <div class="form-container" id="supervisorFormContainer">
+            <form id="supervisorForm" onsubmit="validateSupervisorForm(); return false;">
+                <h1>Supervisor Login</h1>
+                <input type="text" placeholder="Enter your Employee ID" id="supervisorNumber" maxlength="10" oninput="limitInput(this, 10)" required>
+                <input type="password" placeholder="Password" id="supervisorPassword" required>
+                <a href="#">Forgot Your Password?</a>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div class="form-container" id="studentFormContainer">
+            <form id="studentForm" onsubmit="validateStudentForm(); return false;">
+                <h1>Student Login</h1>
+                <input type="text" placeholder="Enter your student number" id="studentNumber" maxlength="10" oninput="limitInput(this, 10)" required>
+                <input type="password" placeholder="Password" id="studentPassword" required>
+                <a href="#">Forgot Your Password?</a>
+                <button type="submit" onclick="location.href='main.html'; return false;">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+    <script>
+        function limitInput(input, maxLength) {
+            let value = input.value;
+            if (value.length > maxLength) {
+                input.value = value.slice(0, maxLength);
+            }
+        }
+
+        function validateStudentForm() {
+            const studentNumber = document.getElementById('studentNumber').value.trim();
+            const studentPassword = document.getElementById('studentPassword').value.trim();
+
+            if (studentNumber !== '' && studentPassword !== '') {
+                location.href = '../main_page/main.html';
+            }
+        }
+
+        function validateSupervisorForm() {
+            const supervisorNumber = document.getElementById('supervisorNumber').value.trim();
+            const supervisorPassword = document.getElementById('supervisorPassword').value.trim();
+
+            if (supervisorNumber !== '' && supervisorPassword !== '') {
+                location.href = '../main_page/main.html';
+            }
+        }
+
+        document.getElementById('supervisorBtn').addEventListener('click', () => {
+            document.getElementById('supervisorFormContainer').style.display = 'block';
+            document.getElementById('studentFormContainer').style.display = 'none';
+        });
+
+        document.getElementById('studentBtn').addEventListener('click', () => {
+            document.getElementById('supervisorFormContainer').style.display = 'none';
+            document.getElementById('studentFormContainer').style.display = 'block';
+        });
+
+        // Initially show the supervisor form
+        document.getElementById('supervisorFormContainer').style.display = 'block';
+        document.getElementById('studentFormContainer').style.display = 'none';
+    </script>
+</body>
+
+</html>

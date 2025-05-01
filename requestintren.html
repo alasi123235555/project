@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج طلب موافقة تدريب ميداني</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 900px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 28px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2980b9;
+            font-size: 20px;
+            margin-bottom: 20px;
+            border-right: 4px solid #3498db;
+            padding-right: 10px;
+        }
+
+        .label-input-pair {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .label-input-pair label {
+            width: 200px;
+            font-weight: bold;
+            color: #34495e;
+            font-size: 15px;
+        }
+
+        .label-input-pair input, 
+        .label-input-pair textarea {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #2c3e50;
+            transition: border-color 0.3s ease;
+        }
+
+        .label-input-pair input:focus, 
+        .label-input-pair textarea:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        button {
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #2980b9, #3498db);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <form class="form-container">
+        <h1>نموذج طلب موافقة تدريب ميداني</h1>
+
+        <!-- بيانات الطالب -->
+        <h2>بيانات الطالب</h2>
+        <div class="label-input-pair">
+            <label>الاسم:</label>
+            <input type="text" placeholder="أدخل اسم الطالب">
+        </div>
+        <div class="label-input-pair">
+            <label>الرقم الجامعي:</label>
+            <input type="text" placeholder="أدخل الرقم الجامعي">
+        </div>
+        <div class="label-input-pair">
+            <label>فصل التدريب:</label>
+            <input type="text" placeholder="أدخل فصل التدريب">
+        </div>
+        <div class="label-input-pair">
+            <label>رقم الهاتف:</label>
+            <input type="text" placeholder="أدخل رقم الهاتف">
+        </div>
+
+        <!-- بيانات الجهة المدربة -->
+        <h2>بيانات الجهة المدربة</h2>
+        <div class="label-input-pair">
+            <label>اسم المؤسسة / الشركة:</label>
+            <input type="text" placeholder="أدخل اسم المؤسسة">
+        </div>
+        <div class="label-input-pair">
+            <label>رقم الهاتف:</label>
+            <input type="text" placeholder="أدخل رقم الهاتف">
+        </div>
+        <div class="label-input-pair">
+            <label>العنوان:</label>
+            <input type="text" placeholder="أدخل العنوان">
+        </div>
+        <div class="label-input-pair">
+            <label>اسم مشرف التدريب:</label>
+            <input type="text" placeholder="أدخل اسم المشرف">
+        </div>
+        <div class="label-input-pair">
+            <label>وظيفة المشرف:</label>
+            <input type="text" placeholder="أدخل وظيفة المشرف">
+        </div>
+
+        <!-- وصف التدريب -->
+        <h2>وصف التدريب</h2>
+        <div class="label-input-pair">
+            <label>وصف التدريب ومجاله:</label>
+            <textarea placeholder="اكتب وصف التدريب ومجاله هنا..."></textarea>
+        </div>
+        <div class="label-input-pair">
+            <label>تاريخ بداية التدريب المتوقع:</label>
+            <input type="date" placeholder="   /   /  ">
+        </div>
+        <div class="label-input-pair">
+            <label>تاريخ نهاية التدريب المتوقع:</label>
+            <input type="date" placeholder="   /   /  ">
+        </div>
+        <div class="label-input-pair">
+            <label>هل يتوفر قسم حاسوب أو شعبة حاسوب:</label>
+            <input type="text" placeholder="نعم / لا">
+        </div>
+
+        <!-- رأي لجنة التدريب -->
+        
+        <button type="submit">إرسال النموذج</button>
+    </form>
+</body>
+</html>
